@@ -29,3 +29,10 @@ Algoritmo de priorización
 El sistema evalúa los síntomas ingresados por el paciente
 Asigna automáticamente un nivel de urgencia
 Reordena la cola de espera según prioridad
+
+## Priorización
+
+Los pacientes se priorizan según:
+1. Urgencia crítica (rojo)
+2. Urgencia media (amarillo)
+3. No urgente (verde)
