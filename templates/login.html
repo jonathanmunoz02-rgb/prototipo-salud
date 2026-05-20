@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}MediCita | Login{% endblock %}
+{% block content %}
+<section class="auth-wrap">
+  <form class="card form-card" method="post">
+    <h1>Iniciar sesión</h1>
+    <label>Cédula<input class="input" type="text" name="cedula" required></label>
+    <label>Contraseña<input class="input" type="password" name="password" required></label>
+    <button class="btn btn-primary" type="submit">Entrar</button>
+  </form>
+</section>
+{% endblock %}

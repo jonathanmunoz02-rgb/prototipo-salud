@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}MediCita | Panel{% endblock %}
+{% block content %}
+<section class="dashboard-header">
+  <div>
+    <span class="eyebrow">{{ session.get('role', 'usuario')|capitalize }}</span>
+    <h1>Hola, {{ session.get('full_name') }}</h1>
+    <p class="lead">Aquí puedes revisar el estado de las citas y administrar la agenda.</p>
+  </div>
+</section>
+
+<div class="dashboard-grid">
+  {% if session.get('role') == 'paciente' %}
+  <section class="card form-card">
+    <h2>Nueva cita</h2>
+    <form method="post" action="{{ url_for('create_appointment') }}">
+      <label>Médico / especialidad
+        <select class="input" name="doctor" required>
+          {% for doctor, specialty in doctors %}
+          <option value="{{ doctor }}|{{ specialty }}">{{ doctor }} · {{ specialty }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Fecha<input class="input" type="date" name="appointment_date" required></label>
+      <label>Hora<input class="input" type="time" name="appointment_time" required></label>
+      <label>Síntomas<textarea class="input textarea" name="symptoms" required></textarea></label>
+      <button class="btn btn-primary" type="submit">Crear cita</button>
+    </form>
+  </section>
+  {% endif %}
+
+  <section class="card appointments-card">
+    <h2>Listado de citas</h2>
+    {% if appointments %}
+      <div class="appointments-list">
+        {% for appointment in appointments %}
+        <article class="appointment-item">
+          <div class="appointment-top">
+            <div>
+              <strong>{{ appointment.specialty }}</strong>
+              <p>{{ appointment.doctor_name }} · {{ appointment.appointment_date }} · {{ appointment.appointment_time }}</p>
+              {% if appointment.patient_name %}<p>Paciente: {{ appointment.patient_name }} · {{ appointment.patient_cedula }}</p>{% endif %}
+            </div>
+            <div class="status-set">
+              <span class="chip {{ appointment.urgency|lower }}">{{ appointment.urgency }}</span>
+              <span class="chip status">{{ appointment.status }}</span>
+            </div>
+          </div>
+          <p><strong>Síntomas:</strong> {{ appointment.symptoms }}</p>
+          <form method="post" action="{{ url_for('cancel_appointment', appointment_id=appointment.id) }}">
+            <button class="btn" type="submit">Cancelar</button>
+          </form>
+        </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="note">Aún no hay citas registradas.</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

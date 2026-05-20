@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}MediCita | Inicio{% endblock %}
+{% block content %}
+<section class="hero-grid">
+  <div>
+    <span class="eyebrow">Sistema de citas médicas</span>
+    <h1>Agenda citas, prioriza urgencias y administra turnos desde un solo lugar.</h1>
+    <p class="lead">Esta versión funcional permite registrar usuarios, iniciar sesión y crear citas médicas guardadas en SQLite con Flask.</p>
+    <div class="action-row">
+      <a class="btn btn-primary" href="{{ url_for('register') }}">Crear cuenta</a>
+      <a class="btn" href="{{ url_for('login') }}">Entrar</a>
+    </div>
+  </div>
+  <aside class="card">
+    <h2>Especialidades disponibles</h2>
+    <ul class="list-clean">
+      {% for doctor, specialty in doctors %}
+      <li><strong>{{ doctor }}</strong> · {{ specialty }}</li>
+      {% endfor %}
+    </ul>
+    <p class="note">Admin por defecto: cédula 1000 · contraseña admin123</p>
+  </aside>
+</section>
+{% endblock %}

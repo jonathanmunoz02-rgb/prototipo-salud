@@ -1,0 +1,26 @@
+:root, [data-theme="light"] {
+  --bg:#f7f6f2; --surface:#f9f8f5; --surface-2:#fbfbf9; --text:#28251d; --muted:#6f6c64;
+  --border:#d4d1ca; --primary:#01696f; --primary-hover:#0c4e54; --inverse:#f9f8f4;
+  --success:#437a22; --warning:#964219; --error:#a12c7b; --radius:16px; --radius-sm:10px;
+  --shadow:0 12px 32px rgba(40,37,29,.08); --font-display:'Source Serif 4', Georgia, serif; --font-body:'Instrument Sans', Arial, sans-serif;
+}
+[data-theme="dark"] {
+  --bg:#171614; --surface:#1c1b19; --surface-2:#201f1d; --text:#cdccca; --muted:#9d9b96;
+  --border:#393836; --primary:#4f98a3; --primary-hover:#227f8b; --inverse:#171614;
+  --success:#6daa45; --warning:#bb653b; --error:#d163a7; --shadow:0 12px 32px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit} .container{width:min(1120px,calc(100% - 2rem));margin:0 auto}
+.skip-link{position:absolute;left:-999px;top:8px;background:var(--primary);color:var(--inverse);padding:.5rem 1rem;border-radius:999px}.skip-link:focus{left:1rem}
+.site-header{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}.brand{display:flex;align-items:center;gap:.75rem;font-weight:700}.brand svg{width:36px;height:36px;color:var(--primary)}
+.nav-links{display:flex;gap:1rem}.page-shell{padding:2rem 0 4rem}.hero-grid,.dashboard-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:start}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}.form-card form,.form-card{display:grid;gap:1rem}
+.eyebrow{display:inline-flex;padding:.35rem .8rem;border-radius:999px;border:1px solid var(--border);background:var(--surface-2);color:var(--muted);font-size:.95rem}.lead,.note,p{color:var(--muted)} h1,h2{font-family:var(--font-display);line-height:1.1;margin:0 0 1rem} h1{font-size:clamp(2.2rem,1.5rem + 2vw,4rem)} h2{font-size:clamp(1.4rem,1rem + 1vw,2rem)}
+.action-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1rem;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}.btn-primary{background:var(--primary);border-color:var(--primary);color:var(--inverse)}.btn:hover,.theme-toggle:hover{transform:translateY(-1px)}
+.theme-toggle,.input,textarea,select,button{font:inherit}.theme-toggle{min-height:44px;min-width:44px;border-radius:999px;border:1px solid var(--border);background:var(--surface);cursor:pointer}
+label{display:grid;gap:.4rem;font-weight:600}.input{min-height:44px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);padding:0 .9rem;color:var(--text)}.textarea{min-height:110px;padding:.8rem .9rem;resize:vertical}
+.flash-stack{display:grid;gap:.75rem;margin-bottom:1rem}.flash{padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--surface)}.flash.success{border-color:color-mix(in srgb,var(--success) 50%, var(--border))}.flash.error{border-color:color-mix(in srgb,var(--error) 50%, var(--border))}
+.list-clean{padding-left:1rem}.appointments-list{display:grid;gap:1rem}.appointment-item{padding:1rem;border:1px solid var(--border);border-radius:14px;background:var(--surface-2)}.appointment-top{display:flex;justify-content:space-between;gap:1rem}.status-set{display:flex;gap:.5rem;flex-wrap:wrap}.chip{display:inline-flex;align-items:center;padding:.35rem .75rem;border-radius:999px;font-size:.9rem;font-weight:700}.chip.normal{background:color-mix(in srgb,var(--primary) 12%,var(--surface));color:var(--primary)}.chip.urgente{background:color-mix(in srgb,var(--warning) 16%,var(--surface));color:var(--warning)}.chip.crítica,.chip.cr\00edtica{background:color-mix(in srgb,var(--error) 18%,var(--surface));color:var(--error)}.chip.status{background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.auth-wrap{display:grid;place-items:center;min-height:70vh}.appointments-card{display:grid;gap:1rem}
+@media (max-width:900px){.hero-grid,.dashboard-grid{grid-template-columns:1fr}.nav-links{display:none}.appointment-top{flex-direction:column}}

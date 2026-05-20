@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}MediCita | Registro{% endblock %}
+{% block content %}
+<section class="auth-wrap">
+  <form class="card form-card" method="post">
+    <h1>Crear cuenta</h1>
+    <label>Nombre completo<input class="input" type="text" name="full_name" required></label>
+    <label>Cédula<input class="input" type="text" name="cedula" required></label>
+    <label>Contraseña<input class="input" type="password" name="password" required></label>
+    <label>Rol
+      <select class="input" name="role" required>
+        <option value="paciente">Paciente</option>
+        <option value="medico">Médico</option>
+      </select>
+    </label>
+    <button class="btn btn-primary" type="submit">Registrarme</button>
+  </form>
+</section>
+{% endblock %}
